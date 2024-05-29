@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Missaka",
+      "username": "Mizzaka",
+      "email": "missaka@gmail.com",
+      "phone": "071246587",
+      "website": "missaka.com"
+    },
+    {
+      "id": "2",
+      "name": "KasunR",
+      "username": "Kassa",
+      "email": "kasunr@gmail.com",
+      "phone": "071246587",
+      "website": "kassa.com"
+    },
+    {
+      "id": "3",
+      "name": "Dinoda",
+      "username": "Dino",
+      "email": "dinoda@gmail.com",
+      "phone": "071246588",
+      "website": "dino.com"
+    },
+    {
+      "id": "4",
+      "name": "Jana",
+      "username": "Jana",
+      "email": "JANA@gmail.com",
+      "phone": "071296588",
+      "website": "JANA.com"
+    },
+    {
+      "id": "5",
+      "name": "Mithila",
+      "email": "mithi@gmail.com",
+      "phone": "074123658"
+    },
+    {
+      "id": "6",
+      "name": "Mayuka",
+      "email": "mayu@gmail.com",
+      "phone": "07412121212"
+    }
+  ]
+}
