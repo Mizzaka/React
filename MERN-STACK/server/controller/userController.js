@@ -10,7 +10,8 @@ export const create = async(req, res) => {
         return res.status(400).json({message: "User already exists"});
      }
      const savedData = await newUser.save();
-     res.status(200).json(savedData);
+    //  res.status(200).json(savedData);
+    res.status(200).json({message: "User created successfuly."});
 
     } catch (error) {
         res.status(500).json({errorMessage:error.message})
@@ -29,16 +30,47 @@ export const getAllUsers = async (req, res) => {
     }
 };
 
-export const getUserById = async(req, res) =>{
+export const getUserById = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const userExist = await User.findById(id);
+        if (!userExist) {
+            return res.status(404).json({ message: "User Not Found." });
+        }
+        res.status(200).json(userExist);
+    } catch (error) {
+        res.status(500).json({ errorMessage: error.message });
+    }
+};
+
+
+ export const update = async (req, res) => {
     try {
       const id = req.params.id;
       const userExist = await User.findById(id);
       if (!userExist) {
         return res.status(404).json({message: "User Not Found."});
       }
-      res.status(404).json(userExist);
+      const updatedData = await User.findByIdAndUpdate(id,req.body,{
+            new:true
+      })
+      res.status(200).json(updatedData);
 
+    }catch (error) {
+        res.status(500).json({ errorMessage: error.message});
+    }
+ };
+
+ export const deleteUser = async (req, res) => {
+    try {
+      const id = req.params.id;
+      const userExist = await User.findById(id);
+      if (!userExist) {
+        return res.status(404).json({message: "User Not Found."});
+      }
+      await User.findByIdAndDelete(id);
+      res.status(200).json({ message: "User deleted successfuly"});
     } catch (error) {
         res.status(500).json({ errorMessage: error.message});
     }
-};
+ }
